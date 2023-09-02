@@ -1,25 +1,19 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import ComponentA from './Components/Comp_A';
+import ComponentB from './Components/Comp_B';
+import ComponentC from './Components/Comp_C';
 import './App.css';
+const App = () => {
+  const [inputFromA, setInputFromA] = useState(0);
+  const [inputFromB, setInputFromB] = useState(0);
 
-function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <ComponentA onInputA={setInputFromA} />
+      <ComponentB onInputB={setInputFromB} />
+      <ComponentC inputA={inputFromA} inputB={inputFromB} />
     </div>
   );
-}
+};
 
 export default App;
